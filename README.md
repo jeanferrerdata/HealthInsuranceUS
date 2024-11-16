@@ -1,8 +1,8 @@
 # US Medical Insurance Data Analysis
 
 <p style="font-size: 1.2em; line-height: 1.3;">
-In this project, we analyze a medical insurance dataset to understand how various factors influence insurance costs.<br>
-Additionally, we aim to employ the Multi-layer Perceptron Regressor (MLPRegressor), a type of neural network used in machine learning, to predict the insurance cost for individuals based on these factors.
+This project analyzes a medical insurance dataset to understand how various factors influence insurance costs.<br>
+Additionally, the Multi-layer Perceptron Regressor (MLPRegressor), a type of neural network used in machine learning, is employed to predict the insurance cost for individuals based on these factors.
 </p>
 
 ## Table of Contents
