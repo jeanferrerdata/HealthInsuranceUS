@@ -63,25 +63,37 @@ This phase aims to uncover insights and patterns from the data.
 ### Visualizing a Correlation Matrix Between All Variables
 A correlation matrix is visualized to identify relationships between variables.  
 This matrix helps to quickly spot highly correlated variables that might affect insurance costs.
+<br><br>
+![Correlation Matrix](imgs/1.correlation_matrix.png)
 
 ### Visualizing Univariate Categorical Data Distribution
 Bar and pie charts are used to show the distribution of categorical variables, such as `sex`, `smoker`, and `region`.
+<br><br>
+![Sex Distribution](imgs/2.distribution_male_female.png)
 
 ### Visualizing Univariate Numerical Data Distribution
 Histograms are used to analyze the distribution patterns of numerical variables like `age`, `bmi`, and `charges`.
+<br><br>
+![BMI Distribution](imgs/3.distribution_bmi.png)
 
 ### Visualizing Univariate Numerical Data Across Categories
 This section explores how numerical variables (e.g., `age`, `bmi`, and `charges`) vary across categories like `region`.  
 Boxplots and violin plots are used for visualization.
+<br><br>
+![BMI by Age Range](imgs/4.bmi_age_range.png)
 
 ### Visualizing Bivariate Numerical Data
-Scatter, hexbin and KDE plots are employed to explore relationships between two numerical variables.  
+Scatter, hexbin and KDE plots are employed to explore relationships between two numerical variables.
+<br><br>
+![Children per Age](imgs/5.number_of_children_per_age.png)
 
 ## Comprehensive Analysis of Factors Affecting Cost
 This section focuses on more complex interactions and trends that affect insurance costs.
 
 ### Visualizing Multivariate Numerical Data
 Scatter plots with color hues are used to illustrate how multiple numerical variables interact and influence insurance costs.
+<br><br>
+![Age vs Charges vs BMI](imgs/6.age_charges_bmi.png)
 
 ### Dealing with Outliers
 Outliers in the dataset, specifically in the charges variable, were addressed using a custom function.  
@@ -91,6 +103,9 @@ The function works as follows:
 - It calculates the average insurance charges for each age group.
 - For each age, any data point where the charges exceed a certain threshold (defined by the parameter `y` times the average) is marked as an outlier.
 - The final output is a dataframe with outliers removed, ensuring that the model's predictions are not skewed by extreme values.
+
+<br><br>
+![Outliers Removal](imgs/7.removing_outliers.png)
 
 ## Multi-layer Perceptron Regressor (MLPRegressor)
 This phase involves building a neural network model to predict insurance costs.
@@ -110,6 +125,9 @@ The MLPRegressor model is initialized with selected hyperparameters and trained 
 ### Visualizing Model Predictions
 After training, the model's predictions are visualized against actual values to assess performance.  
 A double bar graph provides a quick view of how well the model is performing.
+<br><br>
+![Predicted vs Actual Charges (Original)](imgs/8.predicted_vs_actual_charges_(original_dataset).png)
+![Predicted vs Actual Charges (Filtered)](imgs/9.predicted_vs_actual_charges_(filtered_dataset).png)
 
 ### Training Loss Evaluation
 During the training process, the loss curve is visualized to monitor how well the model is learning and adjusting.  
