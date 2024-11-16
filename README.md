@@ -103,8 +103,8 @@ The function works as follows:
 - It calculates the average insurance charges for each age group.
 - For each age, any data point where the charges exceed a certain threshold (defined by the parameter `y` times the average) is marked as an outlier.
 - The final output is a dataframe with outliers removed, ensuring that the model's predictions are not skewed by extreme values.
+<br>
 
-<br><br>
 ![Outliers Removal](imgs/7.removing_outliers.png)
 
 ## Multi-layer Perceptron Regressor (MLPRegressor)
