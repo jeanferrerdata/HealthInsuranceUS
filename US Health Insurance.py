@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split  # Function to split the da
 from sklearn.neural_network import MLPRegressor  # Class for implementing a Multi-layer Perceptron Regressor for regression tasks
 from sklearn.preprocessing import StandardScaler  # Tools for scaling data, StandardScaler for standardization and MinMaxScaler for normalization
 from sklearn import metrics  # Library for accessing various metrics to evaluate machine learning models, such as MAE, MSE, and R2 Score
+import warnings
 
 
 
@@ -16,6 +17,9 @@ from sklearn import metrics  # Library for accessing various metrics to evaluate
 
 # Path of the dataset that will be loaded into a dataframe
 insurance = pd.read_csv('insurance.csv')
+
+# Ignore warnings
+warnings.filterwarnings('ignore')
 
 
 
