@@ -782,17 +782,19 @@ maxY_filtered = y_filtered.max()
 y_original = y_original / maxY_original
 y_filtered = y_filtered / maxY_filtered
 
-# Data standardization
-scaler1 = StandardScaler().fit(x_original)  # Creates the first model for fitting
-scaler2 = StandardScaler().fit(x_filtered)  # Creates the second model for fitting
-
-# Applying standardization
-x_original = scaler1.transform(x_original)  # Applies standardization to the 'x' of the original dataset
-x_filtered = scaler2.transform(x_filtered)  # Applies standardization to the 'x' of the filtered dataset
-
 # Splitting the dataset into training and testing samples, allocating 30% of the data for testing
 o_trainX, o_testX, o_trainY, o_testY = train_test_split(x_original, y_original, test_size=0.3)
 f_trainX, f_testX, f_trainY, f_testY = train_test_split(x_filtered, y_filtered, test_size=0.3)
+
+# Data standardization
+scaler1 = StandardScaler().fit(o_trainX)  # Creates the first model for fitting
+scaler2 = StandardScaler().fit(f_trainX)  # Creates the second model for fitting
+
+# Applying standardization
+o_trainX = scaler1.transform(o_trainX)  # Applies standardization to the 'x' of the original train dataset
+o_testX = scaler1.transform(o_testX)  # Applies standardization to the 'x' of the original test dataset
+f_trainX = scaler2.transform(f_trainX)  # Applies standardization to the 'x' of the filtered train dataset
+f_testX = scaler2.transform(f_testX)  # Applies standardization to the 'x' of the filtered test dataset
 
 
 
@@ -801,12 +803,12 @@ f_trainX, f_testX, f_trainY, f_testY = train_test_split(x_filtered, y_filtered, 
 
 # Creation of the first neural network model (MLPRegressor) for the original dataset
 mlp_reg_original = MLPRegressor(hidden_layer_sizes=(3), activation='logistic', solver='adam',
-                       max_iter=10000, tol=0.0000001, momentum=0.5, early_stopping=True, epsilon=1e-08,
+                       max_iter=5000, tol=0.0000005, momentum=0.5, early_stopping=True, epsilon=1e-08,
                        n_iter_no_change=100, random_state=0)
 
 # Creation of the second neural network model (MLPRegressor) for the filtered dataset (without outliers)
 mlp_reg_filtered = MLPRegressor(hidden_layer_sizes=(3), activation='logistic', solver='adam',
-                       max_iter=10000, tol=0.0000001, momentum=0.5, early_stopping=True, epsilon=1e-08,
+                       max_iter=5000, tol=0.0000005, momentum=0.5, early_stopping=True, epsilon=1e-08,
                        n_iter_no_change=100, random_state=0)
 
 # Training the neural networks using the training data (input and output)
